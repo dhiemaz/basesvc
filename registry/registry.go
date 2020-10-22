@@ -11,15 +11,15 @@ type registry struct {
 }
 
 type Registry interface {
-	NewAppController() controller.AppController
+	NewAppController() *controller.AppController
 }
 
 func NewRegistry(db *sql.DB) Registry {
 	return &registry{db}
 }
 
-func (r *registry) NewAppController() controller.AppController {
-	return controller.AppController{
+func (r *registry) NewAppController() *controller.AppController {
+	return &controller.AppController{
 		Author: r.NewAuthorController(),
 	}
 }

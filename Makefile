@@ -22,8 +22,14 @@ lint-prepare:
 
 lint:
 	./bin/golangci-lint run ./...
- 
+
+setup:
+	@cp config/example/mysql.yml.example config/db/mysql.yml
+	@cp config/example/rest.yml.example config/server/rest.yml
+	@cp config/example/logger.yml.example config/logging/logger.yml
+
 docs:
+	@echo "Generating swagger"
 	swag init -g infrastructure/router/router.go
 
-.PHONY: clean install unittest lint-prepare lint docs engine test dependencies
+.PHONY: clean install unittest lint-prepare lint docs engine test setup dependencies

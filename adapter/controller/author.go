@@ -28,7 +28,7 @@ func NewAuthorController(interactor interactor.AuthorInteractor) AuthorControlle
 // @Router /authors [get]
 func (a *AuthorControllerImpl) GetAuthors(c *fiber.Ctx) error {
 	ctx := c.Context()
-	authors, err := a.AuthorInteractor.GetAll(ctx)
+	//authors, err := a.AuthorInteractor.GetAll(ctx)
 
 	if err != nil {
 		return err
